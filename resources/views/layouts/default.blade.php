@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <title>{{config('app.name','PRISM')}}</title>
+  <title>@yield('title','PRISM') - Pharmancy and Retailer Mactching System</title>
   </head>
   <body>
     @yield('content')
