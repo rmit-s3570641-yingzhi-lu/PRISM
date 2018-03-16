@@ -5,9 +5,12 @@
   <link rel="stylesheet" href="/css/app.css">
   </head>
   <body>
-        @include('inc.navbar')
+        @include('inc._header')
       <div class = "container">
+            <div class="col-md-offset-1 col-md-10">
           @yield('content')
       </div>
+      </div>
+       @include('inc._footer')
   </body>
 </html>
