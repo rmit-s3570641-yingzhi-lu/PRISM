@@ -11,6 +11,7 @@
                 {{--  <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a></li>  --}}
 
                 @if (Auth::check())
+                {{--  <li class="nav-item"><a class="nav-link" href="#">User List</a></li>  --}}
 
                 <div class="dropdown show">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,7 +20,7 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="{{ route('users.show', Auth::user()->id) }}">My Account</a>
-                          <a class="dropdown-item" href="#">Edit Profile</a>
+                          <a class="dropdown-item" href="{{ route('users.edit', Auth::user()->id) }}">Edit Profile</a>
                           <div class="dropdown-divider"></div>
                           <a id="logout" href="#">
                                 <form action="{{ route('logout') }}" method="POST">

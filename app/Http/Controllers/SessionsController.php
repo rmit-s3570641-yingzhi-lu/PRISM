@@ -8,6 +8,14 @@ use Auth;
 
 class SessionsController extends Controller
 {
+    // after login user can not go to login and register again
+    public function __construct()
+    {
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
     public function create()
     {
         return view('sessions.create');
@@ -21,13 +29,13 @@ class SessionsController extends Controller
        ]);
         // User login in info can be remembered for 5 years
        if (Auth::attempt($credentials, $request->has('remember'))) {
-        session()->flash('success', 'Welcome back！');
-        return redirect()->route('users.show', [Auth::user()]);
-    } else {
-        session()->flash('danger', 'Sorry,Wrong Password or Email');
-        return redirect()->back();
-    }
-       return;
+            session()->flash('success', 'Welcome back！');
+            // intended(let user back to the last page they viewed)
+            return redirect()->intended(route('users.show', [Auth::user()]));
+        } else {
+            session()->flash('danger', 'Sorry,Wrong Password or Email');
+            return redirect()->back();
+        }
     }
 
     public function destroy()

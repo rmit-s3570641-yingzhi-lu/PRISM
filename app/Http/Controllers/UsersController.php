@@ -37,4 +37,45 @@ class UsersController extends Controller
         return redirect()->route('users.show', [$user]);
     }
 
+    public function edit(User $user)
+    {
+        $this->authorize('update', $user);
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(User $user, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'password' => 'nullable|confirmed|min:6'
+        ]);
+
+        $this->authorize('update', $user);
+
+        //User can choose to keep the password textfeld blank
+        $data = [];
+        $data['name'] = $request->name;
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
+
+        session()->flash('success', 'Update profile seccessfully!');
+
+        return redirect()->route('users.show', $user->id);
+    }
+
+    //filter the unauthorized users
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'except' => ['show', 'create', 'store']
+        ]);
+
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
 }
