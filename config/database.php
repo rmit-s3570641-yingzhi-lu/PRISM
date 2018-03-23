@@ -1,5 +1,7 @@
 <?php
 
+$db_config = get_db_config(); // include the customized database config
+
 return [
 
     /*
