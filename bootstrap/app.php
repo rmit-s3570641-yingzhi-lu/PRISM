@@ -1,5 +1,8 @@
 <?php
 
+//load the helper file to set up database runing environment
+require __DIR__.'/helpers.php';
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
