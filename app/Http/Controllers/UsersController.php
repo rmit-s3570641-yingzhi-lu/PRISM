@@ -84,8 +84,8 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = '975761491@qq.com';
-        $name = 'jodie';
+        $from = 'prismtest80@gmail.com';
+        $name = 'PRISM';
         $to = $user->email;
         $subject = "Thanks for registering PRISM, please check your email!";
 
