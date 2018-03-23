@@ -29,9 +29,14 @@ class SessionsController extends Controller
        ]);
         // User login in info can be remembered for 5 years
        if (Auth::attempt($credentials, $request->has('remember'))) {
-            session()->flash('success', 'Welcome back！');
-            // intended(let user back to the last page they viewed)
+        if(Auth::user()->activated) {
+            session()->flash('success', 'Welcome back!');
             return redirect()->intended(route('users.show', [Auth::user()]));
+        } else {
+            Auth::logout();
+            session()->flash('warning', 'Your account is not actived, please check your email!');
+            return redirect('/');
+        }
         } else {
             session()->flash('danger', 'Sorry,Wrong Password or Email');
             return redirect()->back();
