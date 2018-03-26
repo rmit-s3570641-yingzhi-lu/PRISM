@@ -18,7 +18,7 @@ class CreateLoginsTable extends Migration
             $table->string('loginDate');
             $table->integer('userId')->unsigned();
             $table->foreign('userId')->references('id')->on('users');
-            
+
         });
     }
 
