@@ -21,9 +21,15 @@
             {{ method_field('PATCH') }}
             {{ csrf_field() }}
 
+
             <div class="form-group">
-              <label for="name">Username:</label>
-              <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+              <label for="firstname">Username:</label>
+              <input type="text" name="firstname" class="form-control" value="{{ $user->firstname }}">
+            </div>
+
+            <div class="form-group">
+              <label for="lastname">Username:</label>
+              <input type="text" name="lastname" class="form-control" value="{{ $user->lastname }}">
             </div>
 
             <div class="form-group">
