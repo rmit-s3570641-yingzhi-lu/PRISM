@@ -13,7 +13,7 @@
 
         <div class="gravatar_edit">
           <a href="http://gravatar.com/emails" target="_blank">
-            <img src="{{ $user->gravatar('200') }}" alt="{{ $user->name }}" class="gravatar"/>
+            <img src="{{ $user->gravatar('200') }}" alt="{{ $user->firstname }}" class="gravatar"/>
           </a>
         </div>
 
@@ -23,12 +23,12 @@
 
 
             <div class="form-group">
-              <label for="firstname">Username:</label>
+              <label for="firstname">First Name:</label>
               <input type="text" name="firstname" class="form-control" value="{{ $user->firstname }}">
             </div>
 
             <div class="form-group">
-              <label for="lastname">Username:</label>
+              <label for="lastname">Last Name:</label>
               <input type="text" name="lastname" class="form-control" value="{{ $user->lastname }}">
             </div>
 

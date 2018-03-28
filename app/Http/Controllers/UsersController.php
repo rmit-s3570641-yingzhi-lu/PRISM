@@ -60,7 +60,8 @@ class UsersController extends Controller
 
         //User can choose to keep the password textfeld blank
         $data = [];
-        $data['name'] = $request->name;
+        $data['firstname'] = $request->firstname;
+        $data['lastname'] = $request->lastname;
         if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }

@@ -15,7 +15,7 @@
 
                 <div class="dropdown show">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }} <b class="caret"></b>
+                            {{ Auth::user()->firstname }} <b class="caret"></b>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
