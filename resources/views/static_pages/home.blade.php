@@ -3,9 +3,9 @@
 @section('title','HOME')
 @section('content')
 <div class="jumbotron">
-        <h1>Hello Laravel</h1>
+        <h1>HELLO PRISM</h1>
         <p class="lead">
-          Here is the main page of Laravel
+          Here is the main page of Prism
         </p>
         <p>
           Start from here
