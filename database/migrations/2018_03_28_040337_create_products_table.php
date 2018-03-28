@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMembergroupTable extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateMembergroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('memberGroup', function (Blueprint $table) {
-            $table->increments('GroupId');
-            $table->primary('GroupId');
-            $table->string('memberName');
-            $table->string('userId');
-            $table->foreign('userId')->references('id')->on('users');
-            
+        Schema::create('products', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('seqNo');
+            $table->string('item_Name');
+            $table->mediumText('description');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateMembergroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('memberGroup');
+        Schema::dropIfExists('products');
     }
 }
