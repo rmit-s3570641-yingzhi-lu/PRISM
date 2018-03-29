@@ -52,7 +52,8 @@ class UsersController extends Controller
     public function update(User $user, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'firstname' => 'required|max:50',
+            'lastname' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'
         ]);
 
@@ -67,7 +68,7 @@ class UsersController extends Controller
         }
 
         $user->update($data);
-
+        //generate a message
         session()->flash('success', 'Update profile seccessfully!');
 
         return redirect()->route('users.show', $user->id);
