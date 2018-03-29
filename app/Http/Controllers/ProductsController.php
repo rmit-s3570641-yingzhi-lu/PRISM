@@ -15,7 +15,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products =  Product::all();
-        return view('users.products')->with('products', $products);
+        return view('products.list')->with('products', $products);
     }
 
     /**
@@ -47,7 +47,8 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        return Product::find($id);
+        $product = Product::find($id);
+        return view('products.show')->with('product', $product);
     }
 
     /**
