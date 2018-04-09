@@ -15,10 +15,17 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('seqNo');
-            $table->string('item_Name');
-            $table->mediumText('description');
-            $table->timestamps();
+            $table->bigInteger('store_code');
+            $table->string('item_id');
+            $table->string('item_description');
+            $table->integer('soh_qty');
+            $table->float('cost_price');
+            $table->float('retail_price');
+            $table->integer('sale30_qty');
+            $table->integer('sale60_qty');
+            $table->integer('sale90_qty');
+            $table->date('expired_date');
+            $table->date('lastsale_date');
         });
     }
 
