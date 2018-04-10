@@ -23,15 +23,19 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'firstname' => 'required|max:50',
+            'lastname' => 'required|max:50',
             'email' => 'required|email|unique:users|max:255',
-            'password' => 'required|confirmed|min:6'
+            'password' => 'required|confirmed|min:6',
+            'phoneNumber' => 'required|max:10',
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'phoneNumber' => $request->phoneNumber,
         ]);
 
         $this->sendEmailConfirmationTo($user);
@@ -48,7 +52,8 @@ class UsersController extends Controller
     public function update(User $user, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:50',
+            'firstname' => 'required|max:50',
+            'lastname' => 'required|max:50',
             'password' => 'nullable|confirmed|min:6'
         ]);
 
@@ -56,13 +61,14 @@ class UsersController extends Controller
 
         //User can choose to keep the password textfeld blank
         $data = [];
-        $data['name'] = $request->name;
+        $data['firstname'] = $request->firstname;
+        $data['lastname'] = $request->lastname;
         if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }
 
         $user->update($data);
-
+        //generate a message
         session()->flash('success', 'Update profile seccessfully!');
 
         return redirect()->route('users.show', $user->id);

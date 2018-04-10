@@ -5,7 +5,11 @@
 <div class="jumbotron">
         <h1>HELLO PRISM</h1>
         <p class="lead">
+<<<<<<< HEAD
           Here is the main page of Prism
+=======
+          Here is the main page of PRISM
+>>>>>>> LosoLai
         </p>
         <p>
           Start from here

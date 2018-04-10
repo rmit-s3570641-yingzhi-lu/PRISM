@@ -16,13 +16,23 @@
             {{--  include the Cross-site request forgery  --}}
 
             <div class="form-group">
-              <label for="name">Name: </label>
-              <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+              <label for="firstname">First Name: </label>
+              <input type="text" name="firstname" class="form-control" value="{{ old('firstname') }}">
+            </div>
+
+            <div class="form-group">
+              <label for="lastname">Last Name: </label>
+              <input type="text" name="lastname" class="form-control" value="{{ old('lastname') }}">
             </div>
 
             <div class="form-group">
               <label for="email">Email: </label>
               <input type="text" name="email" class="form-control" value="{{ old('email') }}">
+            </div>
+
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number: </label>
+              <input type="number" name="phoneNumber" class="form-control" value="{{ old('phoneNumber') }}">
             </div>
 
             <div class="form-group">
