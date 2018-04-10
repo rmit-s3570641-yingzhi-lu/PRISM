@@ -21,11 +21,11 @@ class CreateProductsTable extends Migration
             $table->integer('soh_qty');
             $table->float('cost_price');
             $table->float('retail_price');
-            $table->integer('sale30_qty');
-            $table->integer('sale60_qty');
-            $table->integer('sale90_qty');
-            $table->date('expired_date');
-            $table->date('lastsale_date');
+            $table->integer('sale30_qty')->default(0);
+            $table->integer('sale60_qty')->default(0);
+            $table->integer('sale90_qty')->default(0);
+            $table->date('expired_date')->nullable();
+            $table->date('lastsale_date')->nullable();
         });
     }
 
