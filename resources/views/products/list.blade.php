@@ -5,9 +5,13 @@
   @if(count($products) > 1)
     @foreach($products as $product)
         <div>
-            <h3><a href="/products/{{$product->id}}">SeqNo: {{$product->seqNo}}</a></h3>
-            <small>Item name: {{$product->item_Name}} <br>
-                   Description: {{$product->description}}</small>
+            <h3><a href="/products/{{$product->id}}">Item ID: {{$product->item_id}}</a></h3>
+            <small>Item description: {{$product->item_description}} <br>
+                   SOH_Qty: {{$product->soh_qty}} <br>
+                   Cost price: {{$product->cost_price}} <br>
+                   Retial price: {{$product->retail_price}} <br>
+                   Last sale: {{$product->lastsale_date}} <br>
+            </small>
         </div>
     @endforeach
   @else
