@@ -61,7 +61,6 @@ aside,
 dialog,
 figcaption,
 figure,
-footer,
 header,
 hgroup,
 main,
@@ -79,6 +78,16 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+}
+
+footer {
+  margin-top: 30;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 
 [tabindex="-1"]:focus {
@@ -4171,7 +4180,6 @@ tbody.collapse.show {
   border-radius: 0.25rem;
   -webkit-appearance: none;
      -moz-appearance: none;
-          appearance: none;
 }
 
 .custom-select:focus {
